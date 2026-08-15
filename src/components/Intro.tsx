@@ -16,7 +16,7 @@ export function Intro({ onContinue }: IntroProps) {
 
   return (
     <motion.div
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-ink-900 px-6"
+      className="relative z-10 flex min-h-screen items-center justify-center overflow-hidden bg-ink-900/50 px-6 backdrop-blur-[2px]"
       exit={{ opacity: 0, transition: { duration: 0.6 } }}
     >
       <SmokeBackground />

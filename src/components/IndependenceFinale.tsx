@@ -13,7 +13,7 @@ export function IndependenceFinale({ onRestart }: IndependenceFinaleProps) {
 
   return (
     <motion.div
-      className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-ink-900 px-6"
+      className="relative z-10 flex min-h-screen flex-col items-center justify-center overflow-hidden bg-ink-900/40 px-6 backdrop-blur-[1px]"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}

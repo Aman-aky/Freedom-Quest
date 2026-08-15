@@ -81,7 +81,7 @@ export function Quest({
 
   return (
     <motion.div
-      className="relative min-h-screen overflow-hidden bg-ink-900"
+      className="relative z-10 min-h-screen overflow-hidden bg-ink-900/50 backdrop-blur-[2px]"
       exit={{ opacity: 0, transition: { duration: 0.5 } }}
     >
       <SmokeBackground />

@@ -20,7 +20,7 @@ export function CharacterSelection({ onSelect }: CharacterSelectionProps) {
 
   return (
     <motion.div
-      className="relative min-h-screen overflow-hidden bg-ink-900 px-6 py-16"
+      className="relative z-10 min-h-screen overflow-hidden bg-ink-900/50 px-6 py-16 backdrop-blur-[2px]"
       exit={{ opacity: 0, transition: { duration: 0.6 } }}
     >
       <SmokeBackground />

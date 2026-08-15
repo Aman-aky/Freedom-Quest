@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import type { GameState, CharacterId, Choice, GamePhase } from '@/types';
 import { Landing } from '@/components/Landing';
@@ -7,6 +7,9 @@ import { CharacterSelection } from '@/components/CharacterSelection';
 import { Quest } from '@/components/Quest';
 import { Ending } from '@/components/Ending';
 import { IndependenceFinale } from '@/components/IndependenceFinale';
+import { CinematicBackground } from '@/components/CinematicBackground';
+import { FilmGrain } from '@/components/FilmGrain';
+import { sceneConfigs, getSceneVisualId } from '@/data/sceneConfigs';
 
 const STORAGE_KEY = 'freedom-quest-1942';
 
@@ -104,8 +107,16 @@ export default function App() {
     persist({ ...initialState, startedAt: Date.now() });
   };
 
+  const visualId = useMemo(
+    () => getSceneVisualId(state.phase, state.characterId, state.currentSceneId),
+    [state.phase, state.characterId, state.currentSceneId]
+  );
+  const activeConfig = sceneConfigs[visualId];
+
   return (
-    <div className="min-h-screen bg-ink-900">
+    <div className="relative min-h-screen bg-ink-900">
+      <CinematicBackground config={activeConfig} />
+      <FilmGrain intensity={0.05} />
       <AnimatePresence mode="wait">
         {state.phase === 'landing' && <Landing key="landing" onBegin={handleBegin} />}
         {state.phase === 'intro' && <Intro key="intro" onContinue={handleIntroContinue} />}

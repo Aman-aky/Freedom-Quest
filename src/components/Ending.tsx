@@ -32,7 +32,7 @@ export function Ending({ characterId, stats, decisions, onContinue, onRestart }:
 
   return (
     <motion.div
-      className="relative min-h-screen overflow-hidden bg-ink-900 px-4 py-12"
+      className="relative z-10 min-h-screen overflow-hidden bg-ink-900/50 px-4 py-12 backdrop-blur-[2px]"
       exit={{ opacity: 0, transition: { duration: 0.6 } }}
     >
       <SmokeBackground />
