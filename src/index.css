@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink-900 text-parchment-100 font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background-color: rgba(239, 125, 42, 0.35);
+    color: #fbf6e9;
+  }
+}
+
+@layer components {
+  .paper-grain {
+    background-image:
+      radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+    background-size: 3px 3px, 5px 5px;
+    background-position: 0 0, 1px 1px;
+  }
+  .vignette {
+    box-shadow: inset 0 0 180px 60px rgba(0, 0, 0, 0.85);
+  }
+  .text-glow-ember {
+    text-shadow: 0 0 24px rgba(239, 125, 42, 0.45), 0 0 6px rgba(245, 158, 60, 0.35);
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(212, 168, 87, 0.4);
+    border-radius: 9999px;
+  }
+}
